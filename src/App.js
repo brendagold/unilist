@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+
+import "./App.css";
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import UniList from "./components/UniList";
+
 
 function App() {
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState('');
+  const [data, setData] = React.useState([]);
+
+  React.useEffect(() => {
+    setLoading(true);
+    fetch('http://universities.hipolabs.com/search?country=Nigeria')
+      .then((response) => response.json())
+      .then((data) => {
+        setLoading(false);
+        console.log(data)
+        console.log(typeof(data))
+        setData(data);
+      })
+      .catch((e) => {
+        setLoading(false);
+        setError('fetch failed');
+      });
+  }, []);
+
+  if (loading) {
+    return <p>loading..</p>;
+  }
+
+  if (error !== '') {
+    return <p>ERROR: {error}</p>;
+  }
+  
+ console.log(`This is ${data}`)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <Hero />
+      <UniList data={data} />
     </div>
   );
 }
