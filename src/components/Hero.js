@@ -18,12 +18,14 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       height: "200px",
     },
+    [sizes.down("sm")]: {
+      width: "100%",
+      height: "200px",
+    },
   },
 
   heroContent: {
     position: "absolute",
-    // width: "750px",
-    // height: "300px",
     left: "0",
     right: "0",
     marginLeft: "auto",

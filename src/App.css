@@ -1,4 +1,18 @@
 body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
     width: 100%;
-    
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
 }

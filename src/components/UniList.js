@@ -11,19 +11,38 @@ import {
   TextField,
 } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
+import sizes from "./sizes";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
-    width: "100%",
+    width: "90%",
     margin: theme.spacing(5),
     padding: theme.spacing(3),
+    [sizes.down("md")]: {
+      width: "80%",
+    },
+    [sizes.down("md")]: {
+      width: "90%",
+      margin: theme.spacing(1),
+      padding: theme.spacing(1),
+    },
   },
   searchInput: {
     width: "75%",
+    [sizes.down("md")]: {
+      width: "100%",
+    },
   },
   newButton: {
     position: "absolute",
     right: "10px",
+  },
+  
+  tableCell: {
+    [sizes.down("sm")]: {
+      fontSize: "8px",
+      textWrap: "wrap",
+    },
   },
 }));
 
@@ -80,8 +99,8 @@ const UniList = (props) => {
         <TableBody>
           {recordsAfterPagingAndSorting().map((item, index) => (
             <TableRow key={index}>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>
+              <TableCell className={classes.tableCell}>{item.name}</TableCell>
+              <TableCell className={classes.tableCell}>
                 {" "}
                 <a href={item.web_pages[0]}>{item.web_pages[0]} </a>
               </TableCell>
@@ -89,7 +108,7 @@ const UniList = (props) => {
           ))}
         </TableBody>
       </TblContainer>
-      <TblPagination />
+      <TblPagination  />
     </Paper>
   );
 };
