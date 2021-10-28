@@ -17,8 +17,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
-        console.log(data)
-        console.log(typeof(data))
         setData(data);
       })
       .catch((e) => {
