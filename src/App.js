@@ -13,7 +13,7 @@ function App() {
 
   React.useEffect(() => {
     setLoading(true);
-    fetch('http://universities.hipolabs.com/search?country=Nigeria')
+    fetch('https://unilist-b.herokuapp.com/')
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
