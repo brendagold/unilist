@@ -12,8 +12,17 @@ function App() {
   const [data, setData] = React.useState([]);
 
   React.useEffect(() => {
+    let headers = new Headers();
+
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
     setLoading(true);
-    fetch('https://unilist-b.herokuapp.com/')
+    fetch('https://unilist-b.herokuapp.com/', {
+      mode: 'no-cors',
+      credentials: 'include',
+      method: 'GET',
+      headers: headers
+  })
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
