@@ -22,7 +22,6 @@ function App() {
 
     fetch('https://unilist-b.herokuapp.com', {
       mode: 'cors',
-      credentials: 'include',
       method: 'GET',
       headers: headers
   })
@@ -34,7 +33,7 @@ function App() {
       .catch((e) => {
         setLoading(false);
         setError('fetch failed');
-        console.log(e)
+        
       });
   }, []);
 
@@ -46,7 +45,7 @@ function App() {
     return <p>ERROR: {error}</p>;
   }
   
- console.log(`This is ${data}`)
+ 
   return (
     <div className="App">
       <Nav />
