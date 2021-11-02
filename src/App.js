@@ -16,9 +16,12 @@ function App() {
 
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
+    
     setLoading(true);
-    fetch('https://unilist-b.herokuapp.com/', {
-      mode: 'no-cors',
+
+
+    fetch('https://unilist-b.herokuapp.com', {
+      mode: 'cors',
       credentials: 'include',
       method: 'GET',
       headers: headers
@@ -31,6 +34,7 @@ function App() {
       .catch((e) => {
         setLoading(false);
         setError('fetch failed');
+        console.log(e)
       });
   }, []);
 

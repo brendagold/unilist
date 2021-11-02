@@ -81,8 +81,8 @@ export default function useTable(data, headCells, filterFn) {
       rowsPerPageOptions={pages}
       rowsPerPage={rowsPerPage}
       count={data.length}
-      onChangePage={handleChangePage}
-      onChangeRowsPerPage={handleChangeRowsPerPage}
+      onPageChange={handleChangePage}
+      onRowsPerPageChange={handleChangeRowsPerPage}
       classes={{ root: classes.pagination, caption: classes.caption, actions: classes.actions }}
     />
   );
