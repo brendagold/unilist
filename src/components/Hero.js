@@ -77,7 +77,7 @@ const Hero = () => {
       <div className={classes.heroContent}>
         <h1 className={classes.heroHeading}>List of Nigerian Universities</h1>
         <p className={classes.heroSub}>
-          Check for the school right place for you
+          Check for the school right for you
         </p>
       </div>
     </div>
