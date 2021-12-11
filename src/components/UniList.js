@@ -65,13 +65,13 @@ const UniList = (props) => {
     useTable(data, headCells, filterFn);
 
   const handleSearch = (e) => {
-    let target = e.target;
+    const {value} = e.target;
     setFilterFn({
       fn: (items) => {
-        if (target.value == "") return items;
+        if (!value.trim()) return items;
         else
           return items.filter((x) =>
-            x.name.toLowerCase().includes(target.value)
+            x.name.toLowerCase().includes(value)
           );
       },
     });
